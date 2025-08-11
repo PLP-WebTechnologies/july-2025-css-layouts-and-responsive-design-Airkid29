@@ -1,0 +1,124 @@
+/* Basic and General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+/* Flexbox for Navigation */
+.flex-nav ul {
+    background-color: #555;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Makes the list a flex container */
+    justify-content: center; /* Centers the navigation items */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.flex-nav li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 1rem 1.5rem;
+    white-space: nowrap;
+}
+
+/* Flexbox for Image Gallery */
+.flex-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.flex-gallery img {
+    max-width: 150px;
+    height: auto;
+    flex-grow: 1; /* Allows images to grow and fill available space */
+}
+
+
+/* CSS Grid for Main Layout */
+.grid-container {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-content, .sidebar, .gallery {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li a {
+    display: block;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: #007bff;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/* Responsive Design with Media Queries
+    Mobile-first approach is used here, so these styles
+    are for larger screens.
+*/
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: 2fr 1fr; /* Two columns: main content and sidebar */
+        grid-template-areas: 
+            "main sidebar"
+            "gallery gallery";
+    }
+
+    .main-content {
+        grid-area: main;
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+    }
+
+    .gallery {
+        grid-area: gallery;
+    }
+}
+
+/* Desktop and larger screens */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: 3fr 1fr; /* Adjusting column ratio for larger screens */
+    }
+}
